@@ -10,26 +10,8 @@ export class ChatRoomComponent implements OnInit {
   constructor() { }
 
   participants: any = [
-    { name: "don", id: "1" },
-    { name: "square", id: "2" },
-    { name: "chaami", id: "3" },
-    { name: "kaalan", id: "4" },
-    { name: "poocha", id: "5" },
-    { name: "don", id: "1" },
-    { name: "square", id: "2" },
-    { name: "chaami", id: "3" },
-    { name: "kaalan", id: "4" },
-    { name: "poocha", id: "5" },
-    { name: "don", id: "1" },
-    { name: "square", id: "2" },
-    { name: "chaami", id: "3" },
-    { name: "kaalan", id: "4" },
-    { name: "poocha", id: "5" },
-    { name: "don", id: "1" },
-    { name: "square", id: "2" },
-    { name: "chaami", id: "3" },
-    { name: "kaalan", id: "4" },
-    { name: "poocha", id: "5" }
+    { name: "User 1", id: "+919435234234" },
+    { name: "User 2", id: "+919435234323" }
   ]
 
   ngOnInit(): void {

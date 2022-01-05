@@ -1,7 +1,10 @@
 <p class="title">{{roomName}}</p>
 <div class="room">
-
+    <div *ngFor="let mesg of messages" class="flow">
+        <p class="float">{{mesg}}</p>
+    </div>
 </div>
-<form onsubmit="" class="texting">
-    <input class="text-input" type="text">
-</form>
+<div class="texting">
+    <input class="col-lg-10 text-input" type="text" name="event">
+    <button class="col-lg-2 send-button" onclick="addMessage(event)">send</button>
+</div>

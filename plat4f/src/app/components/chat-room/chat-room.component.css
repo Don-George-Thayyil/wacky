@@ -17,14 +17,13 @@
 }
 .users{
     align-items: center;
-    margin: 1rem 0;
+    margin: .5rem 0;
     display: flex;
     justify-content: space-between;
     padding:.5rem 1rem;
     width:80%;
     background-color: rgba(218, 196, 196, 0.1);
-    border-radius:2rem;
-    
+    border-radius:2rem;    
 }
 .user{
     color:rgba(245, 209, 111, 0.7);

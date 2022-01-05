@@ -9,9 +9,15 @@ export class ChatBoxComponent implements OnInit {
 
   constructor() { }
 
-  roomName:any = "Slit-Throat";
+  roomName:any = "Group Name";
+  messages:any = [];
 
   ngOnInit(): void {
+  }
+
+  addMessage(event: any){
+    console.log(event)
+    this.messages.push(event)
   }
 
 }
