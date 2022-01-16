@@ -53,6 +53,13 @@
     justify-content: center;
     height:2rem;
 }
+.invite{
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .mat-raised-button.mat-blue {
-    background-color:rgb(6, 6, 196)
+    /* background-color:rgb(6, 6, 196) */
+    background-color:rgba(245, 209, 111, 0.7);
  }

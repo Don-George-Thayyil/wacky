@@ -28,6 +28,8 @@
 }
 .texting{
     margin:0rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 .text-input{
     background-color: rgba(218, 196, 196, 0.1);
@@ -37,4 +39,47 @@
 }
 .send-button{
     height: 2rem;
+    background-color:rgba(245, 209, 111, 0.7);
+    /* background-color:rgb(6, 6, 196); */
+    color:white;
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iter{
+    min-width: 100%;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+}
+.flow-left{
+    min-width:100%;
+    min-height: 3rem;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.flow-right{
+    min-width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.float{
+    margin-left:1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width:20rem;
+    max-width:20rem;
+    min-height:2rem;
+    background-color: rgba(245, 209, 111, 0.7);
+    color:white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin:15px;
+    border-top-right-radius: 10px;
+    padding:15px;
+    font-weight: bold;
 }
