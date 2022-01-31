@@ -4,6 +4,9 @@
         <div class="flow-left">
             <p class="float">{{mesg.user}} : {{mesg.message}}</p>
         </div>
+        <div *ngIf="alert!=''">
+            <p>{{alert}}</p>
+        </div>
     </div>
 </div>
 <div class="texting">

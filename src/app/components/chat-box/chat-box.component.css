@@ -49,13 +49,13 @@
 }
 .iter{
     min-width: 100%;
-    min-height: 3rem;
+    min-height: 1rem;
     display: flex;
     align-items: center;
 }
 .flow-left{
     min-width:100%;
-    min-height: 3rem;
+    min-height: 1rem;
     display:flex;
     align-items: center;
     justify-content: flex-start;
@@ -80,6 +80,7 @@
     border-bottom-left-radius: 10px;
     margin:15px;
     border-top-right-radius: 10px;
-    padding:15px;
+    padding:5px;
     font-weight: bold;
+    overflow-x: hidden;
 }
