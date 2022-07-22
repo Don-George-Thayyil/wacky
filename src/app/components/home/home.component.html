@@ -1,0 +1,69 @@
+<div class="toolbar"></div>
+
+<h1>Welcome to Wacky!!!</h1>
+
+<div *ngIf="login&&!authenticated" class="login">
+    <h2>Login Here....</h2>
+  <form [formGroup]="loginForm" (submit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="text" formControlName="password" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" >Login</button>
+  </form>
+    <button mat-button (click)="toggleLogin()">Do not have an account?</button>
+</div>
+
+<div *ngIf="!login&&!authenticated" class="signup">
+    <h2>Signup Here!!!!</h2>
+  <form [formGroup]="signupForm" (submit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="text" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="text" formControlName="confirm" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!signupForm.valid">Sign Up</button>
+  </form>
+    <button mat-button (click)="toggleLogin()">Already have an account?</button>
+</div>
+
+<div  class="join">
+    <h2>Choose a chat room and chat with your friends</h2>
+    <form [formGroup]="joinForm" (submit)="joinRoom()">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Room Name</mat-label>
+        <mat-select formControlName="room" >
+            <mat-option *ngFor="let room of rooms" [value]="room">{{room}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Room Key</mat-label>
+        <input matInput type="text" formControlName="roomKey" />
+      </mat-form-field>
+  
+      <button mat-raised-button [disabled]="!joinForm.valid" color="primary">Join</button>
+    </form>
+      <button mat-button (click)="toggleLogin()">Do not have an account?</button>
+  </div>

@@ -1,0 +1,11 @@
+<div class="toolbar">
+    <a href="#">
+        Home
+    </a>
+    <a href="#">
+        Logout
+    </a>
+</div>
+<div class="vessel">
+    <chat-box *ngIf="room" roomName={{room}} user={{username}} class="chat-box"></chat-box>
+</div>

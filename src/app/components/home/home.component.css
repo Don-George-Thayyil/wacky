@@ -4,3 +4,11 @@
     background-color: #333;
 }
 
+
+.login{
+    display: none;
+}
+
+.signup{
+    display: none;
+}

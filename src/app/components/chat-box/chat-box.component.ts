@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 
+
+
+interface Floater {
+  name?: string;
+  room?: string;
+  time?: string;
+  type?: string;
+  message?: string;
+  id?: string;
+}
 
 @Component({
   selector: 'chat-box',
@@ -9,30 +19,49 @@ import { io, Socket } from 'socket.io-client';
 })
 export class ChatBoxComponent implements OnInit {
 
-  socket:Socket;
+  socket: Socket;
 
   constructor() {
     this.socket = io("http://localhost:6969");
   }
 
-  roomName: any = "Group Name";
-  messages: any = [];
-  message: any = "";
-  user: any = "Don";
-  side: any = false;
-  alert:String = "";
+  @Input() roomName: string = "";
+  messages: Floater[] = [];
+  message: string = "";
+  @Input() user: string = "";
+  side: boolean = false;
+  alert: string = "";
 
   ngOnInit(): void {
-    this.socket.on("broad",(msg)=>this.messages.push({ "user": this.user, "message": msg }))
-    this.message = "";
+
+    this.socket.emit("joinRoom", this.formatMessage(`${this.user} has joined the chat!`, "join"));
+
+    this.socket.on("message", (data) => {
+      this.messages.push(data);
+    });
+
+    this.socket.on("leave",(msg)=>{
+      this.messages.push(this.formatMessage(msg,"join"));
+    })
   }
 
+  formatMessage(message: string, type: string): Floater {
+    return {
+      name: this.user,
+      room: this.roomName,
+      time: new Date().toLocaleTimeString(),
+      type: type,
+      message: message
+    }
+  }
 
+  addMessage(message = this.message, type = "message") {
 
-  addMessage() {
-    this.messages.push({ "user": this.user, "message": this.message });
-    this.socket.emit("message",this.message);
-    // this.socket.on("broad",(msg)=>this.messages.push({ "user": this.user, "message": msg }))
+    if (message !== '') {
+      let data = this.formatMessage(message, type)
+      this.socket.emit("response", data);
+      this.messages.push(data);
+    }
     this.message = "";
   }
 
