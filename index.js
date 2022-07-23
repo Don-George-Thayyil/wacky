@@ -15,6 +15,7 @@ const io = socketio(server, {
 app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", (socket) => {
+  
   socket.on("joinRoom", (data) => {
     Helpers.Join(socket,data);
   });  
