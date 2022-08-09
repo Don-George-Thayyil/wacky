@@ -1,16 +1,26 @@
+<div class="wrapper">
   <div class="online">
     <div class="head">
-      People Online
+      Online
     </div>
     <div class="list">
-      <div class="member" *ngFor="let mem of roomMembers">{{mem.data.name}}</div>
+      <div class="member-wrap" *ngFor="let mem of roomMembers">
+        <div class="member">{{mem.data.name}}</div>
+        <div class="green"></div>
+      </div>
     </div>
   </div>
   <div class="flex">
     <div class="box-wrapper">
       <div class="sub">
+
         <p class="title">{{ roomName }}</p>
         <div class="room" id="chat-window">
+          <div class="system">
+            <div class="text">
+              Hello, Welcome to the {{roomName}} Chat Room
+            </div>
+          </div>
           <div class="sub-window" *ngFor="let message of messages">
             <div class="message" *ngIf="message.type=='message'&&message.name!==user">
               <div class="name">{{message.name}}</div>
@@ -33,6 +43,8 @@
             Send
           </button>
         </div>
+
       </div>
     </div>
   </div>
+</div>

@@ -25,6 +25,7 @@
     right:-5rem;
     bottom:0;
     z-index: -99;
+    opacity: 30%;
 }
 
 .image-2{
