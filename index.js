@@ -17,16 +17,17 @@ app.use(express.static(path.join(__dirname, "public")));
 io.on("connection", (socket) => {
   
   socket.on("joinRoom", (data) => {
-    Helpers.Join(socket,data);
-  });  
+    Helpers.Join(socket, data, io);
+  });
 
-  socket.on("response",(data)=>{
-    Helpers.Send(socket,data);
+  socket.on("response", (data) => {
+    Helpers.Send(socket, data);
   })
 
-  socket.on("disconnect", async() => { 
-    Helpers.Leave(socket.id,io);  
+  socket.on("disconnect", async () => {
+    Helpers.Leave(socket.id, io);
   });
+
 });
 
 const PORT = 6969;
