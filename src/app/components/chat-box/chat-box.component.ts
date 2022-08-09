@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 
 
-
 interface Floater {
   name?: string;
   room?: string;
@@ -11,6 +10,8 @@ interface Floater {
   message?: string;
   id?: string;
 }
+
+
 
 @Component({
   selector: 'chat-box',
@@ -21,7 +22,10 @@ export class ChatBoxComponent implements OnInit {
 
   socket: Socket;
 
-  constructor() {
+
+  constructor(
+    // private ytube:YouTubePlayer
+  ) {
     this.socket = io("http://localhost:6969");
   }
 
@@ -31,19 +35,35 @@ export class ChatBoxComponent implements OnInit {
   @Input() user: string = "";
   side: boolean = false;
   alert: string = "";
+  roomMembers: any = [];
+
+
 
   ngOnInit(): void {
 
     this.socket.emit("joinRoom", this.formatMessage(`${this.user} has joined the chat!`, "join"));
 
+    this.socket.on("users", (data) => {
+      this.roomMembers = data.users
+    })
+
     this.socket.on("message", (data) => {
       this.messages.push(data);
     });
 
-    this.socket.on("leave",(msg)=>{
-      this.messages.push(this.formatMessage(msg,"join"));
+    this.socket.on("leave", (msg) => {
+      this.messages.push(this.formatMessage(msg.text, "join"));
+      this.roomMembers = msg.data;
     })
+
   }
+
+  popByName(name: string) {
+    let index = this.roomMembers.indexOf(name);
+    this.roomMembers = this.roomMembers.splice(index, 1);
+  }
+
+
 
   formatMessage(message: string, type: string): Floater {
     return {
@@ -64,7 +84,6 @@ export class ChatBoxComponent implements OnInit {
     }
     this.message = "";
   }
-
 
 
 }

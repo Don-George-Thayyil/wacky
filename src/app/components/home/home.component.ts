@@ -1,6 +1,8 @@
+import { keyframes } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Room } from 'src/app/interfaces/rooms';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ export class HomeComponent implements OnInit {
   // variables-----------------------------------
   login: boolean = true;
   authenticated: boolean = false;
-  rooms: string[] = ["College Buddies", "Rebellions", "Fat Cats"]
+  rooms: Room[] = [{ name: "College Buddies", key: "college" }, { name: "Rebellions", key: "rebels" }, { name: "Fat Cats", key: "cats" }]
+  hide:boolean =true;
   // forms---------------------------------------
 
   loginForm: FormGroup = new FormGroup({
@@ -33,7 +36,7 @@ export class HomeComponent implements OnInit {
   joinForm: FormGroup = new FormGroup({
     username: new FormControl("", Validators.required),
     room: new FormControl("", Validators.required),
-    roomKey: new FormControl("")
+    roomKey: new FormControl("", Validators.required)
   })
   // -------------------------------------------------------
 
@@ -47,16 +50,31 @@ export class HomeComponent implements OnInit {
     this.authenticated = true;
   }
 
+  checkKey(item:Room,room:any,key:any){
+    console.log(item.name , room?.value, item.key, key?.value)
+        return (item.name == room?.value && item.key == key?.value )
+  }
+
   joinRoom() {
+
     let name = this.joinForm.get("username");
     let room = this.joinForm.get("room");
-    this.router.navigate(["room"],{
-      queryParams:{
-        name:name?.value,
-        room:room?.value,
+    let key = this.joinForm.get("roomKey");
+
+    this.rooms.map(item=>{
+
+      if(this.checkKey(item,room,key)){
+        this.router.navigate(["home/room"], {
+          queryParams: {
+            name: name?.value,
+            room: room?.value,
+          }
+        })
       }
+      // notification
+      
     })
-    console.log(this.joinForm.value)
+    
   }
 
   toggleLogin() {

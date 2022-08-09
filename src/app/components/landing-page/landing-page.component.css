@@ -1,0 +1,61 @@
+.wrapper{
+    display:flex;
+    flex-direction: column;
+    row-gap:1rem;
+    padding:5rem 2rem;
+    justify-content: space-between;
+    min-height:100vh;
+}
+.image{
+    width:70%;
+    height:auto;
+    position:fixed;
+    right:-5rem;
+    bottom:0;
+    z-index: -99;
+}
+.image-2{
+    width:20%;
+    height:auto;
+    position:fixed;
+    left:0rem;
+    bottom:0rem;
+    z-index: -3;
+}
+
+.top-div{
+    display: flex;
+    flex-direction: column;
+    row-gap:7rem;
+    justify-content: space-between;
+
+}
+
+.heading{
+    font-family: "leckeri-one";
+    color: var(--prime);
+    font-size:5rem;
+}
+
+.tag{
+    display: flex;
+    flex-direction:column;
+    /* row-gap: 2rem; */
+}
+
+.tagline{
+    font-family: "lime-light";
+    font-size:1.5rem;
+    color:var(--prime);
+}
+
+.start{
+    width:14rem;
+    border-radius: 5px;
+    border:none;
+    background-color: var(--prime);
+    color:white;
+    font-family: "poppins";
+    padding:1rem;
+    font-size:1rem;
+}

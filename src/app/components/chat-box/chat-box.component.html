@@ -1,30 +1,38 @@
-<p class="title">{{ roomName }}</p>
-<div class="room" id="chat-window">
-  <div class="sub-window" *ngFor="let message of messages">
-    <div class="message" *ngIf="message.type=='message'&&message.name!==user">
-        <div class="name">{{message.name}}</div>
-        <div class="text">{{message.message}}</div>
-        <div class="time">{{message.time}}</div>
+  <div class="online">
+    <div class="head">
+      People Online
     </div>
-    <div class="message self" *ngIf="message.type=='message'&&message.name==user">
-        <div class="name">You</div>
-        <div class="text">{{message.message}}</div>
-        <div class="time">{{message.time}}</div>
-    </div>
-    <div class="notification" *ngIf="message.type=='join'">
-        {{message.message}}
+    <div class="list">
+      <div class="member" *ngFor="let mem of roomMembers">{{mem.data.name}}</div>
     </div>
   </div>
-</div>
-<div class="texting">
-  <input class="col-lg-10 text-input" type="text" [(ngModel)]="message" />
-  <button
-    mat-button
-    [disabled]="message == ''"
-    class="col-lg-2 send-button"
-    ng
-    (click)="addMessage()"
-  >
-    send
-  </button>
-</div>
+  <div class="flex">
+    <div class="box-wrapper">
+      <div class="sub">
+        <p class="title">{{ roomName }}</p>
+        <div class="room" id="chat-window">
+          <div class="sub-window" *ngFor="let message of messages">
+            <div class="message" *ngIf="message.type=='message'&&message.name!==user">
+              <div class="name">{{message.name}}</div>
+              <div class="text">{{message.message}}</div>
+              <div class="time">{{message.time}}</div>
+            </div>
+            <div class="message self" *ngIf="message.type=='message'&&message.name==user">
+              <div class="name">You</div>
+              <div class="text">{{message.message}}</div>
+              <div class="time">{{message.time}}</div>
+            </div>
+            <div class="notification" *ngIf="message.type=='join'">
+              {{message.message}}
+            </div>
+          </div>
+        </div>
+        <div class="texting">
+          <input class="col-lg-10 text-input" type="text" [(ngModel)]="message" />
+          <button mat-button [disabled]="message == ''" class="col-lg-2 send-button" ng (click)="addMessage()">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

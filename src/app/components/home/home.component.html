@@ -1,8 +1,7 @@
-<div class="toolbar"></div>
 
-<h1>Welcome to Wacky!!!</h1>
 
-<div *ngIf="login&&!authenticated" class="login">
+<!-- future implementation -->
+<!-- <div *ngIf="login&&!authenticated" class="login">
     <h2>Login Here....</h2>
   <form [formGroup]="loginForm" (submit)="submit()">
     <mat-form-field appearance="fill">
@@ -41,11 +40,11 @@
     <button mat-raised-button color="primary" [disabled]="!signupForm.valid">Sign Up</button>
   </form>
     <button mat-button (click)="toggleLogin()">Already have an account?</button>
-</div>
+</div> -->
 
 <div  class="join">
-    <h2>Choose a chat room and chat with your friends</h2>
-    <form [formGroup]="joinForm" (submit)="joinRoom()">
+    <h2>Join a chat room and chat with your friends</h2>
+    <form [formGroup]="joinForm" (submit)="joinRoom()" class="form">
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input matInput type="text" formControlName="username" />
@@ -54,16 +53,17 @@
       <mat-form-field appearance="fill">
         <mat-label>Room Name</mat-label>
         <mat-select formControlName="room" >
-            <mat-option *ngFor="let room of rooms" [value]="room">{{room}}</mat-option>
+            <mat-option *ngFor="let room of rooms" [value]="room.name">{{room.name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Room Key</mat-label>
-        <input matInput type="text" formControlName="roomKey" />
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="roomKey" required>
+        <mat-icon matSuffix (click)="hide = !hide"> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
   
-      <button mat-raised-button [disabled]="!joinForm.valid" color="primary">Join</button>
+      <button mat-raised-button [disabled]="!joinForm.valid" class="join-button">Join</button>
     </form>
-      <button mat-button (click)="toggleLogin()">Do not have an account?</button>
+      <!-- <a routerLink="#" mat-button (click)="toggleLogin()">Do not have an account?</a> -->
   </div>

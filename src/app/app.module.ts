@@ -9,6 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoomComponent } from './components/room/room.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { RoomComponent } from './components/room/room.component';
     ChatBoxComponent,
     HomeComponent,
     RoomComponent,
+    HomeLayoutComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,8 @@ import { RoomComponent } from './components/room/room.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

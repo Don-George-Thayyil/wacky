@@ -1,0 +1,41 @@
+.toolbar{
+    padding:2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading{
+    font-family: "leckeri-one";
+    font-size:3rem;
+    color:var(--prime);
+}
+
+.menu{
+    display: flex;
+    column-gap: 2rem;
+    font-family:"poppins";
+    color:var(--grey);
+}
+
+.image{
+    width:70%;
+    height:auto;
+    position:fixed;
+    right:-5rem;
+    bottom:0;
+    z-index: -99;
+}
+
+.image-2{
+    width:20%;
+    height:auto;
+    position:fixed;
+    left:0rem;
+    bottom:0rem;
+    z-index: -3;
+}
+
+p:hover{
+    cursor: pointer;
+}

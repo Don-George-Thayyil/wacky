@@ -1,5 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(assets/libs/bootstrap/bootstrap-grid.min.css);
+
+@font-face {
+    font-family: "leckeri-one";
+    src: url(./assets/fonts/LeckerliOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: "limelight";
+    src: url(./assets/fonts/Limelight-Regular.ttf);
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: "poppins-bold";
+    src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: "poppins-semi";
+    src: url(./assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "lacquer";
+    src: url(./assets/fonts/Lacquer-Regular.ttf);
+}
+
+:root{
+    --prime:#59e4a8;
+    --viol:#505abb;
+    --grey:#a4a4a4;
+    --blue:#2456A1;
+    --lightblue:#0795E5;
+}
+
 .body {
     background-color: rgb(255, 255, 255);
     font-family: "Montserrat", sans-serif;
@@ -11,6 +48,7 @@
 html,
 body {
     height: 100%;
+    font-family: "poppins";
 }
 body {
     margin: 0;
