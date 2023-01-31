@@ -26,7 +26,7 @@ export class ChatBoxComponent implements OnInit {
   constructor(
     // private ytube:YouTubePlayer
   ) {
-    this.socket = io("http://localhost:6969");
+    this.socket = io("https://wacky-backend.onrender.com");
   }
 
   @Input() roomName: string = "";
