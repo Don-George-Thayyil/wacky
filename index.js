@@ -7,9 +7,9 @@ const Helpers = require("./helper");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
-//   cors: {
-//     origin: "http://localhost:4200",
-//   },
+  cors: {
+    origin: "http://localhost:4200",
+  },
 });
 
 app.use(express.static(path.join(__dirname, "public")));
