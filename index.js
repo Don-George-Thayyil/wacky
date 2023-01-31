@@ -7,9 +7,9 @@ const Helpers = require("./helper");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
-  cors: {
-    origin: "https://wackyclient-don-george-thayyil.vercel.app",
-  },
+//   cors: {
+//     origin: "https://wackyclient-don-george-thayyil.vercel.app",
+//   },
 });
 
 app.use(express.static(path.join(__dirname, "public")));
